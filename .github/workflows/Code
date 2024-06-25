@@ -91,7 +91,7 @@ data <- read_excel("data/lung-cancer-data.xlsx")
 
 log2fc.cutoff <- 1
 pvalue.cutoff <- 0.05
-degs <- data[abs(data$log2FC) > log2fc.cutoff & data$PValue < pvalue.cutoff,]
+degs <- data[abs(data$log2FC) > log2fc.cutoff & data$P.Value < pvalue.cutoff,]
 
 # let's write out the table with all differentially expressed genes
 write.table(degs, file=paste0(out.folder,"degs.tsv"), row.names = FALSE, sep="\t", quote = FALSE)
@@ -100,8 +100,8 @@ write.table(degs, file=paste0(out.folder,"degs.tsv"), row.names = FALSE, sep="\t
 # Based on the code in line 68, can you adapt the code to select only up- or
 # down-regulated genes? 
 
-genes.up <- data[data$log2FC > log2fc.cutoff & data$PValue < pvalue.cutoff,]
-genes.down <- data[data$log2FC < -log2fc.cutoff & data$PValue < pvalue.cutoff,]
+genes.up <- data[data$log2FC > log2fc.cutoff & data$P.Value < pvalue.cutoff,]
+genes.down <- data[data$log2FC < -log2fc.cutoff & data$P.Value < pvalue.cutoff,]
 
 
 # #############################################
@@ -111,12 +111,12 @@ genes.down <- data[data$log2FC < -log2fc.cutoff & data$PValue < pvalue.cutoff,]
 # Let's create a Volcano plot to get a better understand of the intensity and
 # direction of the changed genes
 
-EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
+EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "P.Value", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
 
 # the code below saves the figure in a file in our output folder
 filename <- paste0(out.folder,"volcano-plot.png")
 png(filename , width = 2000, height = 1500, res = 150)
-EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
+EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "P.Value", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
 dev.off()
 
 # Step 2
@@ -240,7 +240,7 @@ loadTableData(data, data.key.column = "GeneID", table.key.column = "Ensembl")
 RCy3::setNodeColorMapping(table.column = 'log2FC', mapping.type = 'c', table.column.values = c(-1,0,1), colors = paletteColorBrewerRdBu, default.color = '#FFFFFF', style.name = 'WikiPathways')
 
 # Select significant genes and change border color
-x <- RCy3::createColumnFilter('PValue', 'PValue', 0.05, "LESS_THAN")
+x <- RCy3::createColumnFilter('P.Value', 'P.Value', 0.05, "LESS_THAN")
 RCy3::setNodeBorderColorBypass(x$nodes, new.colors = "#009900")
 RCy3::setNodeBorderWidthBypass(x$nodes, new.sizes = 7)
 RCy3::clearSelection()
