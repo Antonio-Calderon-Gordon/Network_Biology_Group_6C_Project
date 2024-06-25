@@ -91,7 +91,7 @@ data <- read_excel("data/lung-cancer-data.xlsx")
 
 log2fc.cutoff <- 1
 pvalue.cutoff <- 0.05
-degs <- data[abs(data$log2FC) > log2fc.cutoff & data$P.Value < pvalue.cutoff,]
+degs <- data[abs(data$log2FC) > log2fc.cutoff & data$PValue < pvalue.cutoff,]
 
 # let's write out the table with all differentially expressed genes
 write.table(degs, file=paste0(out.folder,"degs.tsv"), row.names = FALSE, sep="\t", quote = FALSE)
@@ -100,8 +100,8 @@ write.table(degs, file=paste0(out.folder,"degs.tsv"), row.names = FALSE, sep="\t
 # Based on the code in line 68, can you adapt the code to select only up- or
 # down-regulated genes? 
 
-genes.up <- ...
-genes.down <- ...
+genes.up <- data[data$log2FC > log2fc.cutoff & data$PValue < pvalue.cutoff,]
+genes.down <- data[data$log2FC < -log2fc.cutoff & data$PValue < pvalue.cutoff,]
 
 
 # #############################################
@@ -111,12 +111,12 @@ genes.down <- ...
 # Let's create a Volcano plot to get a better understand of the intensity and
 # direction of the changed genes
 
-EnhancedVolcano(data, title = paste0("Lung cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "P.Value", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
+EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
 
 # the code below saves the figure in a file in our output folder
 filename <- paste0(out.folder,"volcano-plot.png")
 png(filename , width = 2000, height = 1500, res = 150)
-EnhancedVolcano(data, title = paste0("Lung cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "P.Value", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
+EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
 dev.off()
 
 # Step 2
@@ -135,16 +135,17 @@ res.go.up <- clusterProfiler::enrichGO(genes.up$GeneID, OrgDb = "org.Hs.eg.db",
 res.go.up.df <- as.data.frame(res.go.up)
 write.table(res.go.up.df, file=paste0(out.folder,"go-up.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
 
-# ??? Question 5 - answer in document
 
 # Based on the code above, can you adapt the code to do the enrichment analysis
 # for down-regulated genes?
 
-res.go.down <- ...
+res.go.down <- clusterProfiler::enrichGO(genes.down$GeneID, OrgDb = "org.Hs.eg.db", 
+                   keyType="ENSEMBL", universe=data$GeneID, ont = "BP", 
+                   pAdjustMethod = "BH", qvalueCutoff = 0.05, 
+                   minGSSize = 20, maxGSSize = 400)
 res.go.down.df <- as.data.frame(res.go.down)
 write.table(res.go.down.df, file=paste0(out.folder,"go-down.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
 
-# ??? Question 6 - answer in document
 
 # Both lists are very long and difficult to interpret. Let's see if the 
 # treeplots (discussed in workshop 3) help with the interpretation:
@@ -167,7 +168,6 @@ png(filename , width = 3000, height = 4000, res = 150)
 plot(treeplot(res.go.down.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 15)))
 dev.off()
 
-# ??? Question 7 - answer in document
 
 
 # #############################################
@@ -227,9 +227,8 @@ if(!"name: WikiPathways, version: 3.3.10, status: Installed" %in% RCy3::getInsta
 # Find the associated pathway identifier
 # https://www.wikipathways.org/browse/table.html
 # Make sure you select the ID of the human pathway
-# Example: Cell cycle pathway
 
-pw.id <- "WP179"
+pw.id <- "WP4172"
 RCy3::commandsRun(paste0('wikipathways import-as-pathway id=',pw.id)) 
 
 toggleGraphicsDetails()
@@ -241,7 +240,7 @@ loadTableData(data, data.key.column = "GeneID", table.key.column = "Ensembl")
 RCy3::setNodeColorMapping(table.column = 'log2FC', mapping.type = 'c', table.column.values = c(-1,0,1), colors = paletteColorBrewerRdBu, default.color = '#FFFFFF', style.name = 'WikiPathways')
 
 # Select significant genes and change border color
-x <- RCy3::createColumnFilter('P.Value', 'P.Value', 0.05, "LESS_THAN")
+x <- RCy3::createColumnFilter('PValue', 'PValue', 0.05, "LESS_THAN")
 RCy3::setNodeBorderColorBypass(x$nodes, new.colors = "#009900")
 RCy3::setNodeBorderWidthBypass(x$nodes, new.sizes = 7)
 RCy3::clearSelection()
