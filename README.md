@@ -19,3 +19,4 @@ Student authors
 
 Date: 28/06/2024
 
+- See "Packages.R" file to check the necessary R packages to run the script that was used in this project.
