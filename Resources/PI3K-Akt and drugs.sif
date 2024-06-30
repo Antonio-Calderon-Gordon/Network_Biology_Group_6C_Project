@@ -1,0 +1,364 @@
+Scopolamine	-	CHRM1
+Citalopram	-	CHRM1
+Erythropoietin	-	EPOR
+Necitumumab	-	EGFR
+Pirenzepine	-	CHRM1
+Acetylcholine	-	CHRM1
+Sapropterin	-	NOS3
+Lidocaine	-	EGFR
+Cyproheptadine	-	CHRM1
+Lapatinib	-	EGFR
+Darifenacin	-	CHRM1
+Oxyphenonium	-	CHRM1
+Trimipramine	-	CHRM1
+Apremilast	-	NOS3
+Triflusal	-	NFKB1
+Pranlukast	-	NFKB1
+Cryptenamine	-	CHRM1
+Loxapine	-	CHRM1
+Trihexyphenidyl	-	CHRM1
+Ingenol Mebutate	-	PRKCA
+Neratinib	-	EGFR
+Rasagiline	-	BCL2
+Interferon beta-1a	-	IFNAR1
+Interferon beta-1a	-	IFNAR2
+Solifenacin	-	CHRM1
+Interferon beta-1b	-	IFNAR2
+Interferon beta-1b	-	IFNAR1
+Aminosalicylic Acid	-	CHUK
+Chlorprothixene	-	CHRM1
+Darbepoetin alfa	-	EPOR
+Cycrimine	-	CHRM1
+Icotinib	-	EGFR
+Quetiapine	-	CHRM1
+Pegvisomant	-	GHR
+Turpentine	-	MAPK1
+Peginesatide	-	EPOR
+Benzatropine	-	CHRM1
+Chromic chloride	-	INSR
+Sucralfate	-	FGF2
+Sucralfate	-	EGF
+Gefitinib	-	EGFR
+Eptifibatide	-	ITGB3
+Peginterferon alfa-2b	-	IFNAR1
+Peginterferon alfa-2b	-	IFNAR2
+Insulin Detemir	-	INSR
+Minaprine	-	CHRM1
+Dexibuprofen	-	BCL2
+Acetylcysteine	-	IKBKB
+Acetylcysteine	-	CHUK
+Succinylcholine	-	CHRM1
+Ampicillin	-	TEK
+Insulin Aspart	-	INSR
+Temsirolimus	-	MTOR
+Antihemophilic Factor (Recombinant), PEGylated	-	VWF
+Metoclopramide	-	CHRM1
+Pilocarpine	-	CHRM1
+Thrombin	-	F2R
+Tropicamide	-	CHRM1
+Tamoxifen	-	PRKCA
+Ocriplasmin	-	FN1
+Interferon Alfa-2b, Recombinant	-	IFNAR2
+Interferon Alfa-2b, Recombinant	-	IFNAR1
+Anisotropine Methylbromide	-	CHRM1
+Sarilumab	-	IL6R
+Pethidine	-	CHRM1
+Olmutinib	-	EGFR
+Atropine	-	CHRM1
+Methylscopolamine bromide	-	CHRM1
+Insulin Degludec	-	INSR
+L-Arginine	-	NOS3
+Artenimol	-	RPS6
+Homatropine Methylbromide	-	CHRM1
+Olanzapine	-	CHRM1
+Halothane	-	GNG2
+Dicyclomine	-	CHRM1
+Escitalopram	-	CHRM1
+Doxepin	-	CHRM1
+Terfenadine	-	CHRM1
+Disopyramide	-	CHRM1
+Natural alpha interferon	-	IFNAR1
+Susoctocog alfa	-	VWF
+Cabozantinib	-	KDR
+Cabozantinib	-	MET
+Ribociclib	-	CDK6
+Ribociclib	-	CDK4
+Trastuzumab	-	EGFR
+Triflupromazine	-	CHRM1
+Ramucirumab	-	KDR
+Interferon Alfa-2a, Recombinant	-	IFNAR2
+Interferon Alfa-2a, Recombinant	-	IFNAR1
+Nicardipine	-	CHRM1
+Vonicog Alfa	-	COL1A1
+Imipramine	-	CHRM1
+Lonoctocog alfa	-	VWF
+Cocaine	-	CHRM1
+Simoctocog Alfa	-	VWF
+Gliclazide	-	VEGFA
+Pyrantel	-	CHRM1
+Interferon alfa-n3	-	IFNAR1
+Interferon alfa-n3	-	IFNAR2
+Clozapine	-	CHRM1
+Pegfilgrastim	-	CSF3R
+Ancestim	-	KIT
+Siltuximab	-	IL6
+Dabrafenib	-	RAF1
+Propantheline	-	CHRM1
+Cholecystokinin	-	MAPK3
+Cholecystokinin	-	EGF
+Cholecystokinin	-	RAF1
+Flavin mononucleotide	-	SGK1
+Insulin Human	-	IGF1R
+Insulin Human	-	INSR
+Collagenase clostridium histolyticum	-	COL2A1
+Collagenase clostridium histolyticum	-	COL1A2
+Collagenase clostridium histolyticum	-	COL1A1
+Olaratumab	-	PDGFRA
+Celecoxib	-	PDPK1
+Aclidinium	-	CHRM1
+Erlotinib	-	EGFR
+alpha-Tocopherol succinate	-	PPP2CA
+alpha-Tocopherol succinate	-	PRKCA
+alpha-Tocopherol succinate	-	PPP2CB
+Doxylamine	-	CHRM1
+Fluoxymesterone	-	PRLR
+Cobimetinib	-	MAP2K1
+Dimethyl fumarate	-	RELA
+Aflibercept	-	VEGFB
+Aflibercept	-	VEGFA
+Aflibercept	-	PGF
+Caffeine	-	PIK3CD
+Caffeine	-	PIK3CB
+Caffeine	-	PIK3CA
+Tirofiban	-	ITGB3
+Tirofiban	-	ITGA2B
+Oxyphencyclimine	-	CHRM1
+Dosulepin	-	CHRM1
+Vedolizumab	-	ITGB7
+Vedolizumab	-	ITGA4
+Tuberculin Purified Protein Derivative	-	TLR2
+Procyclidine	-	CHRM1
+Dupilumab	-	IL4R
+Mesalazine	-	CHUK
+Mesalazine	-	IKBKB
+Trametinib	-	MAP2K2
+Trametinib	-	MAP2K1
+Ziprasidone	-	CHRM1
+Insulin Glulisine	-	INSR
+Basiliximab	-	IL2RA
+Basiliximab	-	IL2RB
+Auranofin	-	IKBKB
+Promethazine	-	CHRM1
+Tolterodine	-	CHRM1
+Glycine betaine	-	BCL2
+Tocilizumab	-	IL6R
+Efmoroctocog alfa	-	VWF
+Acetylsalicylic acid	-	PRKAA1
+Acetylsalicylic acid	-	TP53
+Acetylsalicylic acid	-	IKBKB
+Chlorpromazine	-	CHRM1
+Aldesleukin	-	IL2RA
+Aldesleukin	-	IL2RG
+Aldesleukin	-	IL2RB
+Clidinium	-	CHRM1
+Imidafenacin	-	CHRM1
+Nedocromil	-	HSP90AA1
+Promazine	-	CHRM1
+Phosphatidyl serine	-	PRKCA
+Carbachol	-	CHRM1
+Aripiprazole	-	CHRM1
+Miconazole	-	NOS3
+Sirolimus	-	MTOR
+Sirolimus	-	FGF2
+Nortriptyline	-	CHRM1
+Hyoscyamine	-	CHRM1
+Axicabtagene ciloleucel	-	CD19
+Copper	-	HSP90B1
+Copper	-	VTN
+Copper	-	HSP90AA1
+Copper	-	BDNF
+Moroctocog alfa	-	VWF
+Natalizumab	-	ITGA4
+Antithymocyte immunoglobulin (rabbit)	-	ITGB3
+Antithymocyte immunoglobulin (rabbit)	-	ITGAV
+Antithymocyte immunoglobulin (rabbit)	-	ITGB1
+Afatinib	-	EGFR
+L-Citrulline	-	NOS3
+Methotrimeprazine	-	CHRM1
+Phenformin	-	PRKAA1
+Methoxy polyethylene glycol-epoetin beta	-	EPOR
+Ketamine	-	CHRM1
+Bosutinib	-	MAP2K1
+Bosutinib	-	CDK2
+Bosutinib	-	MAP2K2
+Cetuximab	-	EGFR
+Venetoclax	-	BCL2
+Sulindac	-	MAPK3
+Buclizine	-	CHRM1
+Chondroitin sulfate	-	BDNF
+Chondroitin sulfate	-	VEGFA
+Eribulin	-	BCL2
+Bethanechol	-	CHRM1
+Bevacizumab	-	VEGFA
+Ruxolitinib	-	JAK2
+Ruxolitinib	-	JAK1
+Minocycline	-	VEGFA
+Cinnarizine	-	CHRM1
+Trospium	-	CHRM1
+Pimecrolimus	-	MTOR
+Ethopropazine	-	CHRM1
+Lauric Acid	-	TLR4
+Carvedilol	-	VEGFA
+Sargramostim	-	IL3RA
+Umeclidinium	-	CHRM1
+Denileukin diftitox	-	IL2RA
+Denileukin diftitox	-	IL2RB
+Denileukin diftitox	-	IL2RG
+Amitriptyline	-	NTRK1
+Amitriptyline	-	CHRM1
+Amitriptyline	-	NTRK2
+Imatinib	-	PDGFRB
+Imatinib	-	NTRK1
+Imatinib	-	KIT
+Imatinib	-	PDGFRA
+Imatinib	-	CSF1R
+Cevimeline	-	CHRM1
+Maprotiline	-	CHRM1
+Amoxapine	-	CHRM1
+Desipramine	-	CHRM1
+Cyclopentolate	-	CHRM1
+Fesoterodine	-	CHRM1
+Flavoxate	-	CHRM1
+Filgrastim	-	CSF3R
+Streptokinase	-	F2R
+Somatrem	-	IGF1R
+Somatrem	-	GHR
+Docetaxel	-	BCL2
+D-alpha-Tocopherol acetate	-	PRKCA
+D-alpha-Tocopherol acetate	-	PPP2CA
+D-alpha-Tocopherol acetate	-	PPP2CB
+Diphenidol	-	CHRM1
+Paroxetine	-	CHRM1
+Gallamine Triethiodide	-	CHRM1
+Insulin Lispro	-	INSR
+Insulin Lispro	-	IGF1R
+Tiotropium	-	CHRM1
+Ipratropium bromide	-	CHRM1
+Somatotropin	-	GHR
+Somatotropin	-	PRLR
+Mecasermin	-	INSR
+Mecasermin	-	IGF1R
+Osimertinib	-	EGFR
+Thalidomide	-	NFKB1
+Thalidomide	-	FGFR2
+Tisagenlecleucel	-	CD19
+Hexocyclium	-	CHRM1
+Zinc	-	VTN
+Zinc	-	TP53
+Zinc	-	MDM2
+Zinc	-	FN1
+Levamlodipine	-	NOS3
+Biperiden	-	CHRM1
+Mepenzolate	-	CHRM1
+Nilotinib	-	KIT
+Tromethamine	-	VEGFA
+Brompheniramine	-	CHRM1
+Calcium	-	COMP
+Palifermin	-	FGFR3
+Palifermin	-	FGFR1
+Palifermin	-	FGFR2
+Palifermin	-	FGFR4
+Ranibizumab	-	VEGFA
+Vandetanib	-	EGFR
+Vandetanib	-	TEK
+Vandetanib	-	VEGFA
+Insulin Glargine	-	IGF1R
+Insulin Glargine	-	INSR
+Azathioprine	-	RAC1
+Nintedanib	-	KDR
+Nintedanib	-	FLT3
+Nintedanib	-	FGFR1
+Nintedanib	-	FGFR3
+Nintedanib	-	FLT4
+Nintedanib	-	FLT1
+Nintedanib	-	FGFR2
+Propiomazine	-	CHRM1
+Ginseng	-	IL6
+Lamotrigine	-	CHRM1
+Brigatinib	-	IGF1R
+Brigatinib	-	MET
+Brigatinib	-	INSR
+Brigatinib	-	FLT3
+Brigatinib	-	EGFR
+Pidolic Acid	-	VEGFA
+Tofacitinib	-	JAK1
+Tofacitinib	-	JAK3
+Tofacitinib	-	JAK2
+Paclitaxel	-	BCL2
+Clenbuterol	-	NGF
+Mifamurtide	-	TLR4
+Copanlisib	-	PIK3CD
+Copanlisib	-	PIK3CA
+Becaplermin	-	PDGFRA
+Becaplermin	-	PDGFRB
+Lyme disease vaccine (recombinant OspA)	-	TLR2
+Oxybutynin	-	CHRM1
+Polaprezinc	-	HSP90AB1
+Polaprezinc	-	HSP90AA1
+Polaprezinc	-	FLT1
+Polaprezinc	-	IL6
+Polaprezinc	-	PDGFRB
+Polaprezinc	-	NGF
+Formic Acid	-	FGF1
+Pegademase bovine	-	GRB2
+Methantheline	-	CHRM1
+Antihemophilic factor, human recombinant	-	VWF
+Molindone	-	CHRM1
+Axitinib	-	FLT1
+Axitinib	-	FLT4
+Axitinib	-	KDR
+Everolimus	-	MTOR
+Midostaurin	-	FLT3
+Midostaurin	-	KDR
+Midostaurin	-	PRKCA
+Midostaurin	-	PDGFRB
+Midostaurin	-	PDGFRA
+Midostaurin	-	KIT
+Resveratrol	-	ITGB3
+Resveratrol	-	ITGA5
+Resveratrol	-	AKT1
+Dasatinib	-	EPHA2
+Dasatinib	-	KIT
+Dasatinib	-	PDGFRB
+Abemaciclib	-	CDK6
+Abemaciclib	-	CDK4
+Rifabutin	-	HSP90AA1
+Rifabutin	-	HSP90B1
+Panitumumab	-	EGFR
+Insulin Pork	-	IGF1R
+Insulin Pork	-	INSR
+Arsenic trioxide	-	MAPK1
+Arsenic trioxide	-	IKBKB
+Arsenic trioxide	-	CDKN1A
+Arsenic trioxide	-	CCND1
+Arsenic trioxide	-	MAPK3
+Arsenic trioxide	-	AKT1
+Vorapaxar	-	F2R
+Pazopanib	-	PDGFRA
+Pazopanib	-	FLT1
+Pazopanib	-	KIT
+Pazopanib	-	FGFR3
+Pazopanib	-	FLT4
+Pazopanib	-	FGF1
+Pazopanib	-	PDGFRB
+Pazopanib	-	KDR
+Crizotinib	-	MET
+Adenosine monophosphate	-	CREB1
+Adenosine monophosphate	-	PRKAA1
+Isoprenaline	-	PIK3R3
+Isoprenaline	-	MAPK1
+Isoprenaline	-	PIK3R1
+Isoprenaline	-	PIK3R2
+Amlexanox	-	FGF1
+Sunitinib	-	PDGFRA
+S
