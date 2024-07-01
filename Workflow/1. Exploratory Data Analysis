@@ -70,8 +70,6 @@ dir.create(out.folder)
 # Next we will import the dataset
 data <- read_excel("data/data-breast-cancer.xlsx")
 
-# ??? Question 1 - answer in document
-
 
 # #############################################
 # DIFFERENTIALLY EXPRESSED GENES
@@ -86,17 +84,15 @@ degs <- data[abs(data$log2FC) > log2fc.cutoff & data$PValue < pvalue.cutoff,]
 # let's write out the table with all differentially expressed genes
 write.table(degs, file=paste0(out.folder,"degs.tsv"), row.names = FALSE, sep="\t", quote = FALSE)
 
-# ??? Question 2 - answer in document
-
 
 # Based on the code in line 68, can you adapt the code to select only up- or
 # down-regulated genes? 
 
 genes.up <- 1
 genes.down <- -1
-genes.up <- data[data$log2FC > log2fc.cutoff & data$adj.PValue < pvalue.cutoff,]
-genes.down <- data[data$log2FC < -log2fc.cutoff & data$adj.PValue < pvalue.cutoff,]
-# ??? Question 3 - answer in document
+genes.up <- data[data$log2FC > log2fc.cutoff & data$PValue < pvalue.cutoff,]
+genes.down <- data[data$log2FC < -log2fc.cutoff & data$PValue < pvalue.cutoff,]
+
 
 
 # Add a label column to highlight the three specific genes of interest
@@ -121,5 +117,3 @@ filename <- paste0(out.folder,"volcano-plot-new.png")
 png(filename , width = 4000, height = 2500, res = 300)
 EnhancedVolcano(data, title = paste0("Breast Cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$label, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 8, selectLab = genes_of_interest, drawConnectors = TRUE, widthConnectors = 4, colConnectors = "yellow", xlim = c(-15,15), ylim=c(0,8))
 dev.off()
-
-# ??? Question 4 - answer in document
