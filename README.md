@@ -19,7 +19,6 @@ Student authors
 
 Date: 28/06/2024
 
-- See ".github/workflows" to have access to the scripts we have used throughout this project.
 - See "Packages.R" file to check the necessary R packages to run the script that was used in this project.
 - See "Outputs" folder to have a look at all the output that has been generated throughout the course of our project.
 - See "Resources" folder to have a look at the dataset used, drug extension data, generated lists with genes and processes, etcetera.
