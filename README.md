@@ -3,10 +3,10 @@ Group 6C - Network Biology
 
 
 Student authors
-- Bart Bruijnen	ID: i6330097
-- Antonio Calderón Gordon	ID: i6319845
-- Anna Zografaki ID: i6329301
-- Naia Barney Machado	ID: i6318726
+- Bart Bruijnen:
+- Antonio Calderón Gordon:
+- Anna Zografaki: https://github.com/AnnaZografaki 
+- Naia Barney Machado:
 
 
 
