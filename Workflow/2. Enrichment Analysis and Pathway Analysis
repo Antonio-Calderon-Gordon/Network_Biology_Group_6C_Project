@@ -1,0 +1,176 @@
+# Script:       Step2_EnrichmentAnalysis.R
+# Description:  In this script, we will explore the differential gene 
+#               expression dataset comparing breast cancer vs. healthy tissue
+#               samples. The RNA-sequencing dataset was retrieved from 
+#               TCGA (The Cancer Genome Atlas) and pre-processed in R. 
+#               Differential gene expression analysis was performed with the 
+#               DESeq2 R-package. 
+# Version: 1.0
+# Last updated: 2024-06-10
+# Author: mkutmon
+
+# #############################################
+# R INSTRUCTIONS
+# #############################################
+
+# Make sure you ran Step1_DataExploration.R directly before starting this script
+
+
+# #############################################
+# GENE ONTOLOGY ENRICHMENT ANALYSIS
+# #############################################
+
+# We will first explore what kind of biological processes are affected by 
+# performing a Gene Ontology enrichment analysis. 
+
+# We will start by looking at processes that are up-regulated
+res.go.up <- clusterProfiler::enrichGO(genes.up$GeneID, OrgDb = "org.Hs.eg.db", 
+                   keyType="ENSEMBL", universe=data$GeneID, ont = "BP", 
+                   pAdjustMethod = "BH", qvalueCutoff = 0.05, 
+                   minGSSize = 20, maxGSSize = 400)
+res.go.up.df <- as.data.frame(res.go.up)
+write.table(res.go.up.df, file=paste0(out.folder,"go-up.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+# ??? Question 5 - answer in document
+
+# Based on the code above, can you adapt the code to do the enrichment analysis
+# for down-regulated genes?
+
+res.go.down <- clusterProfiler::enrichGO(genes.down$GeneID, OrgDb = "org.Hs.eg.db", 
+                                         keyType="ENSEMBL", universe=data$GeneID, ont = "BP", 
+                                         pAdjustMethod = "BH", qvalueCutoff = 0.05, 
+                                         minGSSize = 20, maxGSSize = 400)
+res.go.down.df <- as.data.frame(res.go.down)
+write.table(res.go.down.df, file=paste0(out.folder,"go-down.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+# ??? Question 6 - answer in document
+
+# Both lists are very long and difficult to interpret. Let's see if the 
+# treeplots (discussed in workshop 3) help with the interpretation:
+# we first calculate the similarity between the processes
+res.go.up.sim <- enrichplot::pairwise_termsim(res.go.up)
+res.go.down.sim <- enrichplot::pairwise_termsim(res.go.down)
+
+# then we visualize them in a treeplot
+treeplot(res.go.up.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 10))
+treeplot(res.go.down.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 15))
+
+# we will also save files that has a nicely readable figure
+filename <- paste0(out.folder,"GO_Upregulated_Treeplot_Improved5.png")
+png(filename , width = 8000, height = 10000, res = 500)
+plot(treeplot(res.go.up.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 10)))
+dev.off()
+
+filename <- paste0(out.folder,"GO_Downregulated_Treeplot_Improved5.png")
+png(filename , width = 8000, height = 10000, res = 500)
+plot(treeplot(res.go.down.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 15)))
+dev.off()
+
+# ??? Question 7 - answer in document
+
+
+# #############################################
+# PATHWAY ENRICHMENT ANALYSIS
+# #############################################
+
+# We will now explore what kind of pathways are affected by 
+# performing a pathway enrichment analysis. 
+
+# Let's retrieve information about the human pathways in WikiPathways
+genesets.wp <- msigdbr(species = "Homo sapiens", subcategory = "CP:WIKIPATHWAYS") %>% dplyr::select(gs_name, ensembl_gene)
+
+# We will start by looking at pathways that are up-regulated
+res.wp.up <- clusterProfiler::enricher(genes.up$GeneID, TERM2GENE = genesets.wp, pAdjustMethod = "fdr", pvalueCutoff = 0.05, minGSSize = 5, maxGSSize = 400)
+res.wp.up.df <- as.data.frame(res.wp.up)
+write.table(res.wp.up.df, file=paste0(out.folder,"wp-up.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+res.wp.down <- clusterProfiler::enricher(genes.down$GeneID, TERM2GENE = genesets.wp, pAdjustMethod = "fdr", pvalueCutoff = 0.05, minGSSize = 5, maxGSSize = 400)
+res.wp.down.df <- as.data.frame(res.wp.down)
+write.table(res.wp.down.df, file=paste0(out.folder,"wp-down.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+# Let's see if the treeplots (discussed in workshop 3) help with the interpretation:
+# we first calculate the similarity between the processes
+res.wp.up.sim <- enrichplot::pairwise_termsim(res.wp.up)
+res.wp.down.sim <- enrichplot::pairwise_termsim(res.wp.down)
+
+# then we visualize them in a treeplot
+treeplot(res.wp.up.sim, label_format = 0.5, showCategory = 70)
+treeplot(res.wp.down.sim, label_format = 0.5, showCategory = 70, cluster.params = list(n = 12))
+
+# we will also save files that has a nicely readable figure
+filename <- paste0(out.folder,"WP_Upregulated_Treeplot.png")
+png(filename , width = 3000, height = 6000, res = 300)
+plot(treeplot(res.wp.up.sim, label_format = 0.5, showCategory = 70))
+dev.off()
+
+filename <- paste0(out.folder,"WP_Downregulated_Treeplot.png")
+png(filename , width = 6000, height = 8000, res = 300)
+plot(treeplot(res.wp.down.sim, label_format = 0.5, showCategory = 70, cluster.params = list(n = 12)))
+dev.off()
+
+# ??? Question 8 - answer in document
+
+#Pathway visualisation and analysis
+# Script:       Step3_PathwayVisualization.R
+# Description:  In this script, we will explore the differential gene 
+#               expression dataset comparing breast cancer vs. healthy tissue
+#               samples. The RNA-sequencing dataset was retrieved from 
+#               TCGA (The Cancer Genome Atlas) and pre-processed in R. 
+#               Differential gene expression analysis was performed with the 
+#               DESeq2 R-package. 
+# Version: 1.0
+# Last updated: 2024-06-10
+# Author: mkutmon
+
+# #############################################
+# R INSTRUCTIONS
+# #############################################
+
+# Make sure you ran Step1_DataExploration.R and Step2_EnrichmentAnalysis.R
+# directly before starting this script
+
+# Select the pathways of interest from the pathway enrichment analysis result
+
+
+# #############################################
+# PATHWAY VISUALIZATION
+# #############################################
+
+# Check if Cytoscape is running
+cytoscapePing()
+
+# Check if WikiPathways app is installed
+if(!"name: WikiPathways, version: 3.3.10, status: Installed" %in% RCy3::getInstalledApps()) {
+  RCy3::installApp("WikiPathways")
+}
+
+# Open Pathway of interest - based on the res.wp.up.df and res.wp.down.df, you can
+# select pathways of interest
+# Find the associated pathway identifier
+# https://www.wikipathways.org/browse/table.html
+# Make sure you select the ID of the human pathway
+# Example: Cell cycle pathway
+
+pw.id <- "WP4172"
+RCy3::commandsRun(paste0('wikipathways import-as-pathway id=',pw.id)) 
+
+toggleGraphicsDetails()
+
+# load the data into Cytoscape (columns get added at the bottom)
+loadTableData(data, data.key.column = "GeneID", table.key.column = "Ensembl")
+
+# visualize the log2FC as a node fill color gradient
+RCy3::setNodeColorMapping(table.column = 'log2FC', mapping.type = 'c', table.column.values = c(-1,0,1), colors = paletteColorBrewerRdBu, default.color = '#FFFFFF', style.name = 'WikiPathways')
+
+# Select significant genes and change border color
+x <- RCy3::createColumnFilter('PValue', 'PValue', 0.05, "LESS_THAN")
+RCy3::setNodeBorderColorBypass(x$nodes, new.colors = "#009900")
+RCy3::setNodeBorderWidthBypass(x$nodes, new.sizes = 7)
+RCy3::clearSelection()
+
+exportImage(paste0(out.folder,'pathway-',pw.id,'.png'), type='PNG', zoom=500) 
+
+# ??? Question 9 - answer in document
+
+
+
