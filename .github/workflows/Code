@@ -35,7 +35,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-# Step 1
+# Exploratory Data Analysis
 # Here we install and load all required packages. 
 if (!("BiocManager" %in% installed.packages())) { install.packages("BiocManager", update=FALSE) }
 if (!("rstudioapi" %in% installed.packages())) { BiocManager::install("rstudioapi", update=FALSE) }
@@ -120,7 +120,7 @@ EnhancedVolcano(data, title = paste0("Breast Cancer vs. Healthy (",nrow(degs), "
 dev.off()
 
 
-# Step 2
+# Enrichtment Analysis
 
 # #############################################
 # PATHWAY ENRICHMENT ANALYSIS
@@ -161,7 +161,7 @@ png(filename , width = 3000, height = 4000, res = 150)
 plot(treeplot(res.wp.down.sim, label_format = 0.5, showCategory = 70, cluster.params = list(n = 12)))
 dev.off()
 
-# Step 3
+# Network and Drug Analysis
 # #############################################
 # PATHWAY VISUALIZATION
 # #############################################
