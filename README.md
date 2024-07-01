@@ -3,8 +3,8 @@ Group 6C - Network Biology
 
 
 Student authors
-- Bart Bruijnen:
-- Antonio Calderón Gordon:
+- Bart Bruijnen: https://github.com/Bardootjeb
+- Antonio Calderón Gordon: https://github.com/Antonio-Calderon-Gordon
 - Anna Zografaki: https://github.com/AnnaZografaki 
 - Naia Barney Machado: https://github.com/NaiaB
 
