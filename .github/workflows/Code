@@ -119,65 +119,15 @@ png(filename , width = 4000, height = 2500, res = 300)
 EnhancedVolcano(data, title = paste0("Breast Cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$label, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 8, selectLab = genes_of_interest, drawConnectors = TRUE, widthConnectors = 4, colConnectors = "yellow", xlim = c(-15,15), ylim=c(0,8))
 dev.off()
 
-# ??? Question 4 - answer in document
 
 # Step 2
-# #############################################
-# GENE ONTOLOGY ENRICHMENT ANALYSIS
-# #############################################
-
-# We will first explore what kind of biological processes are affected by 
-# performing a Gene Ontology enrichment analysis. 
-
-# We will start by looking at processes that are up-regulated
-res.go.up <- clusterProfiler::enrichGO(genes.up$GeneID, OrgDb = "org.Hs.eg.db", 
-                   keyType="ENSEMBL", universe=data$GeneID, ont = "BP", 
-                   pAdjustMethod = "BH", qvalueCutoff = 0.05, 
-                   minGSSize = 20, maxGSSize = 400)
-res.go.up.df <- as.data.frame(res.go.up)
-write.table(res.go.up.df, file=paste0(out.folder,"go-up.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
-
-
-# Based on the code above, can you adapt the code to do the enrichment analysis
-# for down-regulated genes?
-
-res.go.down <- clusterProfiler::enrichGO(genes.down$GeneID, OrgDb = "org.Hs.eg.db", 
-                   keyType="ENSEMBL", universe=data$GeneID, ont = "BP", 
-                   pAdjustMethod = "BH", qvalueCutoff = 0.05, 
-                   minGSSize = 20, maxGSSize = 400)
-res.go.down.df <- as.data.frame(res.go.down)
-write.table(res.go.down.df, file=paste0(out.folder,"go-down.txt"), sep="\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
-
-
-# Both lists are very long and difficult to interpret. Let's see if the 
-# treeplots (discussed in workshop 3) help with the interpretation:
-# we first calculate the similarity between the processes
-res.go.up.sim <- enrichplot::pairwise_termsim(res.go.up)
-res.go.down.sim <- enrichplot::pairwise_termsim(res.go.down)
-
-# then we visualize them in a treeplot
-treeplot(res.go.up.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 10))
-treeplot(res.go.down.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 15))
-
-# we will also save files that has a nicely readable figure
-filename <- paste0(out.folder,"GO_Upregulated_Treeplot.png")
-png(filename , width = 3000, height = 4000, res = 150)
-plot(treeplot(res.go.up.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 10)))
-dev.off()
-
-filename <- paste0(out.folder,"GO_Downregulated_Treeplot.png")
-png(filename , width = 3000, height = 4000, res = 150)
-plot(treeplot(res.go.down.sim, label_format = 0.5, showCategory = 100, cluster.params = list(n = 15)))
-dev.off()
-
-
 
 # #############################################
 # PATHWAY ENRICHMENT ANALYSIS
 # #############################################
 
 # We will now explore what kind of pathways are affected by 
-# performing a pathway enrichment analysis. 
+# performing a pathway enrichment analysis. This was done to find out whether the pathway of interest was up or downregulated.
 
 # Let's retrieve information about the human pathways in WikiPathways
 genesets.wp <- msigdbr(species = "Homo sapiens", subcategory = "CP:WIKIPATHWAYS") %>% dplyr::select(gs_name, ensembl_gene)
