@@ -6,7 +6,7 @@ Student authors
 - Bart Bruijnen:
 - Antonio Calderón Gordon:
 - Anna Zografaki: https://github.com/AnnaZografaki 
-- Naia Barney Machado:
+- Naia Barney Machado: https://github.com/NaiaB
 
 
 
