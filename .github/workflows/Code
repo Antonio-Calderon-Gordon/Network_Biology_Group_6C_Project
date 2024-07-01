@@ -111,13 +111,15 @@ genes.down <- data[data$log2FC < -log2fc.cutoff & data$P.Value < pvalue.cutoff,]
 # Let's create a Volcano plot to get a better understand of the intensity and
 # direction of the changed genes
 
-EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "P.Value", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
+EnhancedVolcano(data, title = paste0("Breast Cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$label, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 8, selectLab = genes_of_interest, drawConnectors = TRUE, widthConnectors = 4, colConnectors = "yellow", xlim = c(-15,15), ylim=c(0,8))
 
 # the code below saves the figure in a file in our output folder
-filename <- paste0(out.folder,"volcano-plot.png")
-png(filename , width = 2000, height = 1500, res = 150)
-EnhancedVolcano(data, title = paste0("Breast cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$GeneName, x = "log2FC", y = "P.Value", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 3, xlim = c(-15,15), ylim=c(0,8))
+filename <- paste0(out.folder,"volcano-plot-new.png")
+png(filename , width = 4000, height = 2500, res = 300)
+EnhancedVolcano(data, title = paste0("Breast Cancer vs. Healthy (",nrow(degs), " DEGs)"), lab = data$label, x = "log2FC", y = "PValue", pCutoff = pvalue.cutoff, FCcutoff = log2fc.cutoff, labSize = 8, selectLab = genes_of_interest, drawConnectors = TRUE, widthConnectors = 4, colConnectors = "yellow", xlim = c(-15,15), ylim=c(0,8))
 dev.off()
+
+# ??? Question 4 - answer in document
 
 # Step 2
 # #############################################
