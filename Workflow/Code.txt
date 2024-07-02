@@ -80,7 +80,7 @@ dir.create(out.folder)
 # #############################################
 
 # Next we will import the dataset
-data <- read_excel("data/lung-cancer-data.xlsx")
+data <- read_excel("data/data-breast-cancer.xlsx")
 
 
 # #############################################
