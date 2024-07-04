@@ -1,1 +1,0 @@
-#In this folder you can have a look at the script used for this project. Note that even though all the script has been ran, not all the generated output has been implemented in project, as it might be outside the scope of our research questions.
