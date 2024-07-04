@@ -6,18 +6,6 @@
 #               Differential gene expression analysis was performed with the 
 #               DESeq2 R-package. 
 # Version: 1.0
-# Last updated: 2024-06-10
-# Author: mkutmon
-
-# #############################################
-# R INSTRUCTIONS
-# #############################################
-
-# * Lines that start with a # are comments
-# * You can run a code line by placing the cursor in the line and clicking 
-#   CTRL/Command + Enter
-# * In between you will see the ??? Questions which refers to a question 
-#   in the question document provided on Canvas.
 
 
 # #############################################
